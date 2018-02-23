@@ -35,7 +35,10 @@ public void setBombs()
     int randomC = (int)(Math.random()*20);
 
     if(!bombs.contains(buttons[randomR][randomC]))
+    {
         bombs.add(buttons[randomR][randomC]);
+        System.out.println(randomR + ", " + randomC);
+    }
   }
 }
 
@@ -115,7 +118,7 @@ public class MSButton
     }
     public boolean isValid(int r, int c)
     {
-        if(r<=20 && c<=20)
+        if(r<=NUM_ROWS && r>=0 && c<=NUM_COLS && c>=0)
             return true;
         return false;
     }
@@ -123,6 +126,62 @@ public class MSButton
     {
         int numBombs = 0;
         //your code here [row-1, col-1] [row-1, col] [row-1, col+1] [row, col-1] [row, col+1] [row+1, col-1] [row+1, col] [row+1, col+1]
+        if(isValid(row-1, col-1) == true)
+        {
+            if(bombs.contains(buttons[row-1][col-1]))
+            {
+                numBombs++;
+            }
+        }
+        if(isValid(row-1, col) == true)
+        {
+            if(bombs.contains(buttons[row-1][col-1]))
+            {
+                numBombs++;
+            }
+        }
+        if(isValid(row-1, col+1) == true)
+        {
+            if(bombs.contains(buttons[row-1][col+1]))
+            {
+                numBombs++;
+            }
+        }
+        if(isValid(row, col-1) == true)
+        {
+            if(bombs.contains(buttons[row][col-1]))
+            {
+                numBombs++;
+            }
+        }
+        if(isValid(row, col+1) == true)
+        {
+            if(bombs.contains(buttons[row][col+1]))
+            {
+                numBombs++;
+            }
+        }
+        if(isValid(row+1, col-1) == true)
+        {
+            if(bombs.contains(buttons[row+1][col-1]))
+            {
+                numBombs++;
+            }
+        }
+        if(isValid(row+1, col) == true)
+        {
+            if(bombs.contains(buttons[row+1][col]))
+            {
+                numBombs++;
+            }
+        }
+        if(isValid(row+1, col+1) == true)
+        {
+            if(bombs.contains(buttons[row+1][col+1]))
+            {
+                numBombs++;
+            }
+        }
         return numBombs;
     }
 }
