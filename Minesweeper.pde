@@ -56,6 +56,7 @@ public boolean isWon()
 public void displayLosingMessage()
 {
     //your code here
+    System.out.println("lose");
 }
 public void displayWinningMessage()
 {
@@ -94,7 +95,18 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        //your code here
+        if(keyPressed == true)
+        {
+            marked = !marked;
+        }
+        else if(bombs.contains(buttons[r][c]))
+        {
+            displayLosingMessage();
+        }
+        else if(countBombs(r,c)>0)
+        {
+            //label.setLabel(countBombs(r,c));
+        }
     }
 
     public void draw () 
@@ -125,7 +137,6 @@ public class MSButton
     public int countBombs(int row, int col)
     {
         int numBombs = 0;
-        //your code here [row-1, col-1] [row-1, col] [row-1, col+1] [row, col-1] [row, col+1] [row+1, col-1] [row+1, col] [row+1, col+1]
         if(isValid(row-1, col-1) == true)
         {
             if(bombs.contains(buttons[row-1][col-1]))
