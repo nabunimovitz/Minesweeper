@@ -105,9 +105,30 @@ public class MSButton
         }
         else if(countBombs(r,c)>0)
         {
-            //label.setLabel(countBombs(r,c));
+            //System.out.println(countBombs(r,c));
+            setLabel(Integer.toString(countBombs(r,c)));
+        }
+        else //FIX THIS
+        {
+            if(c!=0) //clears to the left
+            {
+                buttons[r][c-1].mousePressed();
+            }
+            if(c!=NUM_COLS) //clears to the right
+            {
+                buttons[r][c+1].mousePressed();
+            }   
+            if(r!=0) //clear down
+            {
+                buttons[r-1][c].mousePressed();
+            }
+            if(r!=NUM_ROWS) //clear up
+            {
+                buttons[r+1][c].mousePressed();
+            }
         }
     }
+    
 
     public void draw () 
     {    
