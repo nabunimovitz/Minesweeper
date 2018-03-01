@@ -55,20 +55,45 @@ public boolean isWon()
     {
         for(int cols=0; cols<NUM_COLS; cols++)
         {
-            if(buttons[rows][cols].isClicked() && !bombs.contains(buttons[rows][cols]))
-                return true;
+            if(!buttons[rows][cols].isClicked() && !bombs.contains(buttons[rows][cols]))
+                return false;
         }
     }
-    return false;
+    return true;
 }
 public void displayLosingMessage()
 {
-    //your code here
-    System.out.println("lose");
+    buttons[9][5].setLabel("G");
+    buttons[9][6].setLabel("A");
+    buttons[9][7].setLabel("M");
+    buttons[9][8].setLabel("E");
+    buttons[9][9].setLabel(" ");
+    buttons[9][10].setLabel("O");
+    buttons[9][11].setLabel("V");
+    buttons[9][12].setLabel("E");
+    buttons[9][13].setLabel("R");
+    //System.out.println("lose");
+
+    for(int row=0; row<NUM_ROWS; row++)
+    {
+        for(int col=0; col<NUM_COLS; col++)
+        {
+            if(bombs.contains(buttons[row][col]))
+                buttons[row][col].setLabel("B");
+        }
+    }
 }
 public void displayWinningMessage()
 {
-    //your code here
+    buttons[9][6].setLabel("Y");
+    buttons[9][7].setLabel("O");
+    buttons[9][8].setLabel("U");
+    buttons[9][9].setLabel(" ");
+    buttons[9][10].setLabel("W");
+    buttons[9][11].setLabel("I");
+    buttons[9][12].setLabel("N");
+    buttons[9][13].setLabel("!");
+    //System.out.println("win");
 }
 
 public class MSButton
