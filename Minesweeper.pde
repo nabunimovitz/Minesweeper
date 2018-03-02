@@ -37,7 +37,7 @@ public void setBombs()
     if(!bombs.contains(buttons[randomR][randomC]))
     {
         bombs.add(buttons[randomR][randomC]);
-        System.out.println(randomR + ", " + randomC);
+        //System.out.println(randomR + ", " + randomC);
     }
   }
 }
