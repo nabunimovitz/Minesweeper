@@ -138,7 +138,7 @@ public class MSButton
         }
         else if(countBombs(r,c)>0)
         {
-            setLabel(Integer.toString(countBombs(r,c)));
+            setLabel(""+(countBombs(r,c)));
         }
         else 
         {
